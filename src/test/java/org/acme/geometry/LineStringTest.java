@@ -44,4 +44,16 @@ public class LineStringTest {
 		LineString ls = new LineString();
 		Assert.assertTrue(ls.isEmpty());
 	}
+
+	@Test
+	public void testTranslate(){
+		Coordinate c = new Coordinate(0.0, 0.0);
+		Point p = new Point(c);
+		List<Point> pointsi = new ArrayList<Point>();
+		pointsi.add(p);
+		LineString ls = new LineString(pointsi);
+		ls.translate(1.0, -1.0);
+		Assert.assertEquals(1.0, p.getCoordinate().getX(), EPSILON);
+		Assert.assertEquals(-1.0, p.getCoordinate().getY(), EPSILON);
+	}
 }

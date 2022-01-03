@@ -1,4 +1,5 @@
 package org.acme.geometry;
+import java.rmi.NotBoundException;
 import java.util.ArrayList;
 import java.util.List;
 public class LineString implements Geometry{
@@ -33,5 +34,14 @@ public class LineString implements Geometry{
             return true;
         }
         return false;
+    }
+
+    public void translate(double dx, double dy){
+        if(!isEmpty()){
+            int nbPoint = getNumPoints();
+            for(int k=0; k<nbPoint; k++){
+                getPointN(k).translate(dx, dy);
+            }
+        }
     }
 }
