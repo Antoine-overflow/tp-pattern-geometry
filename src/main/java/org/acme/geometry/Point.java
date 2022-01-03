@@ -13,10 +13,17 @@ public class Point implements Geometry{
     }
 
     public Point(Coordinate coord){
+        if(coord == null){
+            coord = new Coordinate();
+        }
         this.coordinate = coord;
     }
 
     public String getType(){
         return "Point";
+    }
+
+    public Boolean isEmpty(){
+        return this.coordinate.isEmpty();
     }
 }

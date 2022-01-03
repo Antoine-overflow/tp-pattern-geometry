@@ -5,13 +5,14 @@ public class LineString implements Geometry{
     private List<Point> points; 
 
     public LineString(){
-        Point p = new Point();
         List<Point> pointsi = new ArrayList<Point>();
-        pointsi.add(p);
         this.points = pointsi;
     }
 
     public LineString(List<Point> pointsi){
+        if (pointsi == null){
+            pointsi = new ArrayList<Point>();
+        }
         this.points = pointsi;
     }
 
@@ -25,5 +26,12 @@ public class LineString implements Geometry{
 
     public String getType(){
         return "LineString";
+    }
+
+    public Boolean isEmpty(){
+        if(this.getNumPoints() == 0){
+            return true;
+        }
+        return false;
     }
 }

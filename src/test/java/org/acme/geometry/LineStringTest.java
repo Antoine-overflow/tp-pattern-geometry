@@ -3,6 +3,8 @@ package org.acme.geometry;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sound.sampled.Line;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,10 +16,7 @@ public class LineStringTest {
 	public void testDefaultConstructor(){
 		LineString ls = new LineString();
 		int nbPoint = ls.getNumPoints();
-		Assert.assertEquals(1, nbPoint, EPSILON);
-        Coordinate c = ls.getPointN(nbPoint-1).getCoordinate();
-        Assert.assertEquals(0.0, c.getX(), EPSILON);
-		Assert.assertEquals(0.0, c.getY(), EPSILON);
+		Assert.assertEquals(0, nbPoint, EPSILON);
 	}
 
 	@Test
@@ -40,4 +39,9 @@ public class LineStringTest {
 		Assert.assertEquals(2.0, c4.getY(), EPSILON);
 	}
 
+	@Test
+	public void testIsEmpty(){
+		LineString ls = new LineString();
+		Assert.assertTrue(ls.isEmpty());
+	}
 }
