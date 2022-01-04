@@ -39,5 +39,15 @@ public class PointTest {
 		Assert.assertEquals(1.0, p.getCoordinate().getX(), EPSILON);
 		Assert.assertEquals(-1.0, p.getCoordinate().getY(), EPSILON);
 	}
+
+	@Test
+	public void TestDefaultClone(){
+		Point point = new Point( new Coordinate(2.0, 2.0));
+		Point point1 = point;
+		Point copy = point.clone();
+		copy.translate(10.0, 10.0);
+
+		Assert.assertEquals(point, point1);
+	}
 }
 

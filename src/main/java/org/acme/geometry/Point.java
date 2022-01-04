@@ -34,4 +34,8 @@ public class Point implements Geometry{
             this.coordinate = coord2;
         }
     }
+
+    public Point clone(){
+        return new Point(this.coordinate);
+    }
 }

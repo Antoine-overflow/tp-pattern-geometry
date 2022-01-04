@@ -44,4 +44,8 @@ public class LineString implements Geometry{
             }
         }
     }
+
+    public LineString clone(){
+        return new LineString(this.points);
+    }
 }
