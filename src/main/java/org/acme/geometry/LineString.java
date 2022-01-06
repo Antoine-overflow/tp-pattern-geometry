@@ -2,7 +2,7 @@ package org.acme.geometry;
 import java.rmi.NotBoundException;
 import java.util.ArrayList;
 import java.util.List;
-public class LineString implements Geometry{
+public class LineString extends AbstractGeometry{
     private List<Point> points; 
 
     public LineString(){
