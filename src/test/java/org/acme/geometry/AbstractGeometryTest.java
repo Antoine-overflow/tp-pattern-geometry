@@ -46,4 +46,5 @@ public class AbstractGeometryTest {
         Assert.assertEquals(3.0, line.getEnvelope().getYmin(), EPSILON);
         Assert.assertEquals(5.0, line.getEnvelope().getYmax(), EPSILON);
     }
+    
 }
