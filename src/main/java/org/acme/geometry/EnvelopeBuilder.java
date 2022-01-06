@@ -36,4 +36,13 @@ public class EnvelopeBuilder implements GeometryVisitor{
             insert(line.getPointN(i).getCoordinate());
         }        
     }
+
+    public void visit(GeometryCollection geometryCollection) {
+        for (int i = 0 ; i < geometryCollection.getNumGeometries() ; i++){
+            Coordinate coords1 = new Coordinate( geometryCollection.getEnvelope().getXmin() , geometryCollection.getEnvelope().getYmin());
+            Coordinate coords2 = new Coordinate( geometryCollection.getEnvelope().getXmax() , geometryCollection.getEnvelope().getYmax());
+            insert(coords1);
+            insert(coords2);
+        }
+    }
 }
