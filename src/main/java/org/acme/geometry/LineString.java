@@ -43,6 +43,7 @@ public class LineString extends AbstractGeometry{
                 getPointN(k).translate(dx, dy);
             }
         }
+        triggerChange();
     }
 
     public LineString clone(){

@@ -28,11 +28,12 @@ public class Point extends AbstractGeometry{
     }
 
     public void translate(double dx, double dy){
-        if(!isEmpty()){
-            Coordinate coord = this.getCoordinate();
-            Coordinate coord2 = new Coordinate(coord.getX() + dx, coord.getY() + dy);
-            this.coordinate = coord2;
+        if (this.coordinate.isEmpty()) {
+            this.coordinate = new Coordinate(dx, dy);
+        } else {
+            this.coordinate = new Coordinate(this.coordinate.getX() + dx, this.coordinate.getY() + dy);
         }
+        triggerChange();
     }
 
     public Point clone(){
