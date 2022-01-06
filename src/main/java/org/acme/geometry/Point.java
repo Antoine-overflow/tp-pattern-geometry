@@ -46,4 +46,8 @@ public class Point implements Geometry{
             return new Envelope();
         }
     }
+
+    public void accept(GeometryVisitor visitor) {
+        visitor.visit(this);
+    }
 }
